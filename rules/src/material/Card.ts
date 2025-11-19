@@ -82,7 +82,7 @@ export enum Card {
   Fisherman,
   Baker,
   Beekeeper,
-  //Expansion
+  //Expansion1
   //Castle
   IronMask,
   Toady,

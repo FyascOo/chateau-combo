@@ -6,17 +6,17 @@ import { MaterialType } from './MaterialType'
 import { Place } from './Place'
 import { Scoring } from './Scoring'
 
-
 export enum Shield {
-  Nobility = 1,
-  Faith,
-  Scholarship,
-  Military,
-  Craftsmanship,
-  Peasantry
+  Nobility = 1, //blue
+  Faith, //purple
+  Scholarship, //green
+  Military, //red
+  Craftsmanship, //orange
+  Peasantry //yellow
 }
 
-const X = true, _ = false
+const X = true,
+  _ = false
 
 export const shields = getEnumValues(Shield)
 
@@ -49,8 +49,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     shields: [Shield.Faith, Shield.Faith],
     effects: [{ type: EffectType.GainKeys, gain: 4 }],
     scoring: {
-      score: 5, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 5,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [X, X, X],
           [_, _, _],
           [_, _, _]
@@ -87,8 +89,11 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     moveMessenger: true,
     effects: [
       {
-        type: EffectType.GainGold, gain: 1, condition: {
-          type: ConditionType.BestNeighbor, condition: { type: ConditionType.PerShield, shield: Shield.Faith }
+        type: EffectType.GainGold,
+        gain: 1,
+        condition: {
+          type: ConditionType.BestNeighbor,
+          condition: { type: ConditionType.PerShield, shield: Shield.Faith }
         }
       },
       { type: EffectType.GainKeys, gain: 1, condition: { type: ConditionType.PerShield, shield: Shield.Military } }
@@ -104,7 +109,8 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
   },
 
   [Card.Alchemist]: {
-    cost: 6, shields: [Shield.Scholarship],
+    cost: 6,
+    shields: [Shield.Scholarship],
     effects: [{ type: EffectType.Discount, castle: 1, village: 1 }],
     scoring: { score: 4, condition: { type: ConditionType.PerCardWithDiscount } }
   },
@@ -114,8 +120,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     shields: [Shield.Scholarship, Shield.Scholarship],
     effects: [{ type: EffectType.Discount, castle: 1 }],
     scoring: {
-      score: 8, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 8,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [X, _, _],
           [X, _, _],
           [X, _, _]
@@ -161,8 +169,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     moveMessenger: true,
     effects: [{ type: EffectType.GainKeys, gain: 1, condition: { type: ConditionType.PerCardWithShieldCount, count: 2 } }],
     scoring: {
-      score: 6, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 6,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [X, _, _],
           [X, _, _],
           [X, _, _]
@@ -203,8 +213,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     moveMessenger: true,
     effects: [{ type: EffectType.Discount, village: 1 }],
     scoring: {
-      score: 8, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 8,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [_, _, X],
           [_, _, X],
           [_, _, X]
@@ -234,8 +246,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     moveMessenger: true,
     effects: [{ type: EffectType.DiscardFromRiver, river: Place.Village, token: MaterialType.Key }],
     scoring: {
-      score: 5, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 5,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [_, _, _],
           [_, _, _],
           [X, X, X]
@@ -277,11 +291,13 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     cost: 7,
     shields: [Shield.Craftsmanship],
     moveMessenger: true,
-    effects: [{
-      type: EffectType.ChooseBetween,
-      effect1: { type: EffectType.PutGoldOnCard, gold: 2 },
-      effect2: { type: EffectType.GainKeys, gain: 3 }
-    }],
+    effects: [
+      {
+        type: EffectType.ChooseBetween,
+        effect1: { type: EffectType.PutGoldOnCard, gold: 2 },
+        effect2: { type: EffectType.GainKeys, gain: 3 }
+      }
+    ],
     scoring: { score: 1, condition: { type: ConditionType.PerGoldInAllPurses } }
   },
 
@@ -375,8 +391,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     shields: [Shield.Nobility, Shield.Nobility],
     effects: [{ type: EffectType.GainKeys, gain: 2 }],
     scoring: {
-      score: 8, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 8,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [X, X, X],
           [_, _, _],
           [_, _, _]
@@ -398,15 +416,19 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     effects: [
       { type: EffectType.GainGold, gain: 1, condition: { type: ConditionType.PerShield, shield: Shield.Scholarship } },
       {
-        type: EffectType.GainKeys, gain: 1, condition: {
+        type: EffectType.GainKeys,
+        gain: 1,
+        condition: {
           type: ConditionType.BestNeighbor,
           condition: { type: ConditionType.PerShield, shield: Shield.Military }
         }
       }
     ],
     scoring: {
-      score: 6, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 6,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [_, X, _],
           [_, X, _],
           [_, X, _]
@@ -468,16 +490,20 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     cost: 2,
     shields: [Shield.Military],
     moveMessenger: true,
-    effects: [{
-      type: EffectType.ChooseBetween,
-      effect1: {
-        type: EffectType.GainGold, gain: 1, condition: {
-          type: ConditionType.BestNeighbor,
-          condition: { type: ConditionType.PerShield, shield: Shield.Scholarship }
-        }
-      },
-      effect2: { type: EffectType.GainKeys, gain: 2 }
-    }],
+    effects: [
+      {
+        type: EffectType.ChooseBetween,
+        effect1: {
+          type: EffectType.GainGold,
+          gain: 1,
+          condition: {
+            type: ConditionType.BestNeighbor,
+            condition: { type: ConditionType.PerShield, shield: Shield.Scholarship }
+          }
+        },
+        effect2: { type: EffectType.GainKeys, gain: 2 }
+      }
+    ],
     scoring: { score: 10, condition: { type: ConditionType.IfShieldMissing, shield: Shield.Scholarship } }
   },
 
@@ -485,32 +511,40 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     cost: 2,
     shields: [Shield.Military],
     moveMessenger: true,
-    effects: [{
-      type: EffectType.ChooseBetween,
-      effect1: {
-        type: EffectType.GainGold, gain: 1, condition: {
-          type: ConditionType.BestNeighbor,
-          condition: { type: ConditionType.PerShield, shield: Shield.Peasantry }
-        }
-      },
-      effect2: { type: EffectType.GainKeys, gain: 2 }
-    }],
+    effects: [
+      {
+        type: EffectType.ChooseBetween,
+        effect1: {
+          type: EffectType.GainGold,
+          gain: 1,
+          condition: {
+            type: ConditionType.BestNeighbor,
+            condition: { type: ConditionType.PerShield, shield: Shield.Peasantry }
+          }
+        },
+        effect2: { type: EffectType.GainKeys, gain: 2 }
+      }
+    ],
     scoring: { score: 3, condition: { type: ConditionType.PerShield, shield: Shield.Military, line: true } }
   },
 
   [Card.Bombardier]: {
     cost: 2,
     shields: [Shield.Military],
-    effects: [{
-      type: EffectType.ChooseBetween,
-      effect1: {
-        type: EffectType.GainGold, gain: 1, condition: {
-          type: ConditionType.BestNeighbor,
-          condition: { type: ConditionType.PerShield, shield: Shield.Craftsmanship }
-        }
-      },
-      effect2: { type: EffectType.GainKeys, gain: 2 }
-    }],
+    effects: [
+      {
+        type: EffectType.ChooseBetween,
+        effect1: {
+          type: EffectType.GainGold,
+          gain: 1,
+          condition: {
+            type: ConditionType.BestNeighbor,
+            condition: { type: ConditionType.PerShield, shield: Shield.Craftsmanship }
+          }
+        },
+        effect2: { type: EffectType.GainKeys, gain: 2 }
+      }
+    ],
     scoring: { score: 3, condition: { type: ConditionType.PerShield, shield: Shield.Military, column: true } }
   },
 
@@ -525,16 +559,20 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
   [Card.Blacksmith]: {
     cost: 5,
     shields: [Shield.Military, Shield.Craftsmanship],
-    effects: [{
-      type: EffectType.ChooseBetween,
-      effect1: {
-        type: EffectType.GainGold, gain: 1, condition: {
-          type: ConditionType.BestNeighbor,
-          condition: { type: ConditionType.PerShield, shield: Shield.Nobility }
-        }
-      },
-      effect2: { type: EffectType.GainKeys, gain: 2 }
-    }],
+    effects: [
+      {
+        type: EffectType.ChooseBetween,
+        effect1: {
+          type: EffectType.GainGold,
+          gain: 1,
+          condition: {
+            type: ConditionType.BestNeighbor,
+            condition: { type: ConditionType.PerShield, shield: Shield.Nobility }
+          }
+        },
+        effect2: { type: EffectType.GainKeys, gain: 2 }
+      }
+    ],
     scoring: { score: 2, condition: { type: ConditionType.PerCardWithShieldCount, count: 2 } }
   },
 
@@ -557,7 +595,8 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     shields: [Shield.Craftsmanship],
     effects: [
       { type: EffectType.PutGoldOnCard, gold: 2 },
-      { type: EffectType.GainGold, gain: 0, opponentsGain: 2 }],
+      { type: EffectType.GainGold, gain: 0, opponentsGain: 2 }
+    ],
     scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 6 } }
   },
   [Card.Sculptor]: {
@@ -581,8 +620,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     shields: [Shield.Craftsmanship],
     effects: [{ type: EffectType.GainGold, gain: 2, condition: { type: ConditionType.PerShield, shield: Shield.Craftsmanship } }],
     scoring: {
-      score: 5, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 5,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [_, _, _],
           [X, X, X],
           [_, _, _]
@@ -611,8 +652,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     moveMessenger: true,
     effects: [{ type: EffectType.GainKeys, gain: 1, condition: { type: ConditionType.PerShield, shield: Shield.Peasantry } }],
     scoring: {
-      score: 7, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 7,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [_, _, _],
           [_, _, _],
           [X, X, X]
@@ -641,26 +684,33 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     cost: 4,
     shields: [Shield.Peasantry],
     moveMessenger: true,
-    effects: [{ type: EffectType.GainGold, gain: 1, condition: { type: ConditionType.PerShield, shield: Shield.Peasantry } }, {
-      type: EffectType.GainKeys,
-      gain: 1,
-      condition: {
-        type: ConditionType.BestNeighbor,
-        condition: { type: ConditionType.PerShield, shield: Shield.Faith }
+    effects: [
+      { type: EffectType.GainGold, gain: 1, condition: { type: ConditionType.PerShield, shield: Shield.Peasantry } },
+      {
+        type: EffectType.GainKeys,
+        gain: 1,
+        condition: {
+          type: ConditionType.BestNeighbor,
+          condition: { type: ConditionType.PerShield, shield: Shield.Faith }
+        }
       }
-    }],
+    ],
     scoring: { score: 9, condition: { type: ConditionType.IfShieldMissing, shield: Shield.Faith } }
   },
 
   [Card.Brigand]: {
     cost: 7,
     shields: [Shield.Peasantry],
-    effects: [{
-      type: EffectType.GainKeys, gain: 1, condition: {
-        type: ConditionType.BestNeighbor,
-        condition: { type: ConditionType.PerBanner, banner: Place.Castle }
+    effects: [
+      {
+        type: EffectType.GainKeys,
+        gain: 1,
+        condition: {
+          type: ConditionType.BestNeighbor,
+          condition: { type: ConditionType.PerBanner, banner: Place.Castle }
+        }
       }
-    }],
+    ],
     scoring: { score: 7, condition: { type: ConditionType.PerBannersSet, banners: [Place.Village, Place.Village, Place.Village] } }
   },
 
@@ -669,8 +719,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     shields: [Shield.Peasantry],
     effects: [{ type: EffectType.GainGold, gain: 1, condition: { type: ConditionType.PerFullPosition } }],
     scoring: {
-      score: 5, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 5,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [_, _, X],
           [_, _, X],
           [_, _, X]
@@ -752,8 +804,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
     shields: [Shield.Peasantry, Shield.Peasantry],
     effects: [{ type: EffectType.Discount, castle: 1 }],
     scoring: {
-      score: 4, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 4,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [X, _, X],
           [_, _, _],
           [X, _, X]
@@ -770,8 +824,10 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
       { type: EffectType.GainKeys, gain: 1, condition: { type: ConditionType.PerBanner, banner: Place.Village } }
     ],
     scoring: {
-      score: 3, condition: {
-        type: ConditionType.IfPosition, position: [
+      score: 3,
+      condition: {
+        type: ConditionType.IfPosition,
+        position: [
           [_, X, _],
           [X, _, X],
           [_, X, _]
@@ -783,6 +839,80 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
   [Card.Beekeeper]: {
     cost: 2,
     shields: [Shield.Peasantry],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+
+  //Expansion1
+  [Card.IronMask]: {
+    cost: 8,
+    shields: [Shield.Nobility, Shield.Faith, Shield.Scholarship],
+    effects: [{ type: EffectType.PutKeyOnCard, hasKey: true, effect: EffectType. }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.Toady]: {
+    cost: 7,
+    shields: [Shield.Nobility],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.Conspirator]: {
+    cost: 1,
+    shields: [Shield.Faith],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.Playwright]: {
+    cost: 3,
+    shields: [Shield.Scholarship],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.CardinalHand]: {
+    cost: 0,
+    shields: [Shield.Military],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.Printer]: {
+    cost: 0,
+    shields: [Shield.Craftsmanship],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.KingOfBeggars]: {
+    cost: 5,
+    shields: [Shield.Military, Shield.Craftsmanship, Shield.Peasantry],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.ArtForger]: {
+    cost: 4,
+    shields: [Shield.Scholarship],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.Cutpurse]: {
+    cost: 3,
+    shields: [Shield.Military],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.Peddler]: {
+    cost: 7,
+    shields: [Shield.Craftsmanship],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.PrinceOfThieves]: {
+    cost: 4,
+    shields: [Shield.Peasantry],
+    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
+    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+  },
+  [Card.FortuneTeller]: {
+    cost: 1,
+    shields: [Shield.Peasantry, Shield.Peasantry],
     effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
     scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
   }

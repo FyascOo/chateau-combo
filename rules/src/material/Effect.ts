@@ -3,15 +3,16 @@ import { MaterialType } from './MaterialType'
 import { Place } from './Place'
 
 export enum EffectType {
-  Discount ,
-  GainGold ,
+  Discount,
+  GainGold,
   GainKeys,
   DiscardFromRiver,
   ChooseBetween,
-  PutGoldOnCard
+  PutGoldOnCard,
+  PutKeyOnCard
 }
 
-export type Effect = Discount | GainGold | GainKeys | DiscardFromRiver | ChooseBetween | PutGoldOnCard
+export type Effect = Discount | GainGold | GainKeys | DiscardFromRiver | ChooseBetween | PutGoldOnCard | PutKeyOnCard
 
 export type Discount = {
   type: EffectType.Discount
@@ -49,4 +50,12 @@ export type PutGoldOnCard = {
   type: EffectType.PutGoldOnCard
   gold?: number
   cardsLimit?: number
+}
+
+//Expansion1
+
+export type PutKeyOnCard = {
+  type: EffectType.PutKeyOnCard
+  hasKey: boolean
+  effect: Effect
 }
