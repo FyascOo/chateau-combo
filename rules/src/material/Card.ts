@@ -82,6 +82,21 @@ export enum Card {
   Fisherman,
   Baker,
   Beekeeper,
+  //Expansion
+  //Castle
+  IronMask,
+  Toady,
+  Conspirator,
+  Playwright,
+  CardinalHand,
+  Printer,
+  //Village
+  KingOfBeggars,
+  ArtForger,
+  Cutpurse,
+  Peddler,
+  PrinceOfThieves,
+  FortuneTeller
 }
 
 export const cards = getEnumValues(Card)
