@@ -9,10 +9,21 @@ export enum EffectType {
   DiscardFromRiver,
   ChooseBetween,
   PutGoldOnCard,
-  PutKeyOnCard
+  PutKeyOnCard,
+  DiscardLocation,
+  ActivateAdjacentAbility
 }
 
-export type Effect = Discount | GainGold | GainKeys | DiscardFromRiver | ChooseBetween | PutGoldOnCard | PutKeyOnCard
+export type Effect =
+  | Discount
+  | GainGold
+  | GainKeys
+  | DiscardFromRiver
+  | ChooseBetween
+  | PutGoldOnCard
+  | PutKeyOnCard
+  | DiscardLocation
+  | ActivateAdjacentAbility
 
 export type Discount = {
   type: EffectType.Discount
@@ -56,6 +67,13 @@ export type PutGoldOnCard = {
 
 export type PutKeyOnCard = {
   type: EffectType.PutKeyOnCard
-  hasKey: boolean
-  effect: Effect
+}
+
+export type DiscardLocation = {
+  type: EffectType.DiscardLocation
+  effect?: GainKeys
+}
+
+export type ActivateAdjacentAbility = {
+  type: EffectType.ActivateAdjacentAbility
 }

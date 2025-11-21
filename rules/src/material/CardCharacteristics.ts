@@ -847,73 +847,97 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
   [Card.IronMask]: {
     cost: 8,
     shields: [Shield.Nobility, Shield.Faith, Shield.Scholarship],
-    effects: [{ type: EffectType.PutKeyOnCard, hasKey: true, effect: EffectType. }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    moveMessenger: true,
+    effects: [
+      { type: EffectType.PutKeyOnCard },
+      {
+        type: EffectType.DiscardLocation,
+        effect: { type: EffectType.GainKeys, gain: 2, condition: { type: ConditionType.PerShield, shield: Shield.Craftsmanship } }
+      }
+    ],
+    scoring: { score: 3, condition: { type: ConditionType.PerDifferentCost } }
   },
   [Card.Toady]: {
     cost: 7,
+    moveMessenger: true,
     shields: [Shield.Nobility],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.DiscardLocation }],
+    scoring: { score: 1, condition: { type: ConditionType.SumOfCost, line: true } }
   },
   [Card.Conspirator]: {
     cost: 1,
+    moveMessenger: true,
     shields: [Shield.Faith],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.GainGold, gain: 2, condition: { type: ConditionType.PerShield, shield: Shield.Military } }],
+    scoring: { score: 8, condition: { type: ConditionType.IfDiscountMissing } }
   },
   [Card.Playwright]: {
     cost: 3,
     shields: [Shield.Scholarship],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.GainGold, gain: 1, condition: { type: ConditionType.PerBanner, banner: Place.Castle } }],
+    scoring: { score: 2, condition: { type: ConditionType.PerCardWithShieldCount, count: 1 } }
   },
   [Card.CardinalHand]: {
     cost: 0,
     shields: [Shield.Military],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.GainGold, gain: 2, condition: { type: ConditionType.PerShield, shield: Shield.Faith } }],
+    scoring: { score: 5, condition: { type: ConditionType.AtLeastOneShield, shield: Shield.Faith, line: true } }
   },
   [Card.Printer]: {
     cost: 0,
     shields: [Shield.Craftsmanship],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [
+      { type: EffectType.PutKeyOnCard },
+      { type: EffectType.DiscardLocation, effect: { type: EffectType.GainKeys, gain: 3, condition: { type: ConditionType.PerCardWithDiscount } } }
+    ],
+    scoring: { score: 5, condition: { type: ConditionType.AtLeastOneShield, shield: Shield.Scholarship, column: true } }
   },
   [Card.KingOfBeggars]: {
     cost: 5,
+    moveMessenger: true,
     shields: [Shield.Military, Shield.Craftsmanship, Shield.Peasantry],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [
+      { type: EffectType.PutKeyOnCard },
+      {
+        type: EffectType.DiscardLocation,
+        effect: { type: EffectType.GainKeys, gain: 2, condition: { type: ConditionType.PerShield, shield: Shield.Scholarship } }
+      }
+    ],
+    scoring: { score: 12, condition: { type: ConditionType.IfCardFlippedMissing } }
   },
   [Card.ArtForger]: {
     cost: 4,
     shields: [Shield.Scholarship],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.ActivateAdjacentAbility }],
+    scoring: { score: 7, condition: { type: ConditionType.AtLeastOneShield, shield: Shield.Military, line: true } }
   },
   [Card.Cutpurse]: {
     cost: 3,
     shields: [Shield.Military],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [
+      { type: EffectType.PutKeyOnCard },
+      { type: EffectType.DiscardLocation, effect: { type: EffectType.GainKeys, gain: 3, condition: { type: ConditionType.PerCardWithPurse } } }
+    ],
+    scoring: { score: 10, condition: { type: ConditionType.IfCardWithPurseMissing } }
   },
   [Card.Peddler]: {
     cost: 7,
+    moveMessenger: true,
     shields: [Shield.Craftsmanship],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.DiscardLocation }],
+    scoring: { score: 1, condition: { type: ConditionType.SumOfCost, column: true } }
   },
   [Card.PrinceOfThieves]: {
     cost: 4,
     shields: [Shield.Peasantry],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.GainGold, gain: 1, condition: { type: ConditionType.PerBanner, banner: Place.Castle } }],
+    scoring: { score: 4, condition: { type: ConditionType.PerLock } }
   },
   [Card.FortuneTeller]: {
     cost: 1,
+    moveMessenger: true,
     shields: [Shield.Peasantry, Shield.Peasantry],
-    effects: [{ type: EffectType.PutGoldOnCard, gold: 2 }],
-    scoring: { score: 2, condition: { type: ConditionType.PerGoldInPurse, limit: 9 } }
+    effects: [{ type: EffectType.PutKeyOnCard }, { type: EffectType.ActivateAdjacentAbility }],
+    scoring: { score: 3, condition: { type: ConditionType.AtLeastOneShield, shield: Shield.Nobility, column: true } }
   }
 }
