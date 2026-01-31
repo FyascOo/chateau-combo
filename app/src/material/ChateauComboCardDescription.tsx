@@ -89,6 +89,18 @@ import Bag from '../images/icons/bag.png'
 import CraftManIcon from '../images/icons/craftman.png'
 import Faith from '../images/icons/faith.png'
 import Military from '../images/icons/military.png'
+import IronMask from '../images/cards/en/Ext1Card1IronMask.jpg'
+import Toady from '../images/cards/en/Ext1Card2Toady.jpg'
+import Conspirator from '../images/cards/en/Ext1Card3Conspirator.jpg'
+import Playwright from '../images/cards/en/Ext1Card4Playwright.jpg'
+import CardinalHand from '../images/cards/en/Ext1Card5CardinalHand.jpg'
+import Printer from '../images/cards/en/Ext1Card6Printer.jpg'
+import KingOfBeggars from '../images/cards/en/Ext1Card7KingOfBeggars.jpg'
+import ArtForger from '../images/cards/en/Ext1Card8ArtForger.jpg'
+import Cutpurse from '../images/cards/en/Ext1Card9Cutpurse.jpg'
+import Peddler from '../images/cards/en/Ext1Card10Peddler.jpg'
+import PrinceOfThieves from '../images/cards/en/Ext1Card11PrinceOfThieves.jpg'
+import FortuneTeller from '../images/cards/en/Ext1Card12FortuneTeller.jpg'
 
 import NobilityIcon from '../images/icons/nobility.png'
 import PeasantryIcon from '../images/icons/peasantry.png'
@@ -191,8 +203,19 @@ export class ChateauComboCardDescription extends CardDescription {
     [Card.Revolutionary]: Revolutionary,
     [Card.Fisherman]: Fisherman,
     [Card.Baker]: Baker,
-    [Card.Beekeeper]: Beekeeper
-
+    [Card.Beekeeper]: Beekeeper,
+    [Card.IronMask]: IronMask,
+    [Card.Toady]: Toady,
+    [Card.Conspirator]: Conspirator,
+    [Card.Playwright]: Playwright,
+    [Card.CardinalHand]: CardinalHand,
+    [Card.Printer]: Printer,
+    [Card.KingOfBeggars]: KingOfBeggars,
+    [Card.ArtForger]: ArtForger,
+    [Card.Cutpurse]: Cutpurse,
+    [Card.Peddler]: Peddler,
+    [Card.PrinceOfThieves]: PrinceOfThieves,
+    [Card.FortuneTeller]: FortuneTeller,
   }
 
   getImages(): string[] {
