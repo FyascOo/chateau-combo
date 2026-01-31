@@ -21,12 +21,44 @@ export enum ConditionType {
   PerFullPosition,
   PerEmptyPosition,
   IfPosition,
-  BestNeighbor
+  BestNeighbor,
+  SumOfCost,
+  PerDifferentCost,
+  IfDiscountMissing,
+  AtLeastOneShield,
+  IfCardFlippedMissing,
+  IfCardWithPurseMissing,
+  PerLock
 }
 
-export type Condition = PerShield | PerDifferentShieldType | PerMissingShieldType | IfShieldMissing | PerShieldsSet | PerIdenticalShieldsSet
-  | PerKey | PerBanner | PerBannersSet | PerCardWithShieldCount | PerCardWithCost | PerCardWithDiscount | IfCardFlippedDown
-  | PerCardWithPurse | PerGoldInPurse | PerGoldInAllPurses | PerFullPosition | PerEmptyPosition | IfPosition | BestNeighbor
+export type Condition =
+  | PerShield
+  | PerDifferentShieldType
+  | PerMissingShieldType
+  | IfShieldMissing
+  | PerShieldsSet
+  | PerIdenticalShieldsSet
+  | PerKey
+  | PerBanner
+  | PerBannersSet
+  | PerCardWithShieldCount
+  | PerCardWithCost
+  | PerCardWithDiscount
+  | IfCardFlippedDown
+  | PerCardWithPurse
+  | PerGoldInPurse
+  | PerGoldInAllPurses
+  | PerFullPosition
+  | PerEmptyPosition
+  | IfPosition
+  | BestNeighbor
+  | SumOfCost
+  | PerDifferentCost
+  | IfDiscountMissing
+  | AtLeastOneShield
+  | IfCardFlippedMissing
+  | IfCardWithPurseMissing
+  | PerLock
 
 export type PerShield = {
   type: ConditionType.PerShield
@@ -122,4 +154,37 @@ export type IfPosition = {
 export type BestNeighbor = {
   type: ConditionType.BestNeighbor
   condition: Condition
+}
+
+export type SumOfCost = {
+  type: ConditionType.SumOfCost
+  line?: boolean
+  column?: boolean
+}
+
+export type PerDifferentCost = {
+  type: ConditionType.PerDifferentCost
+}
+
+export type IfDiscountMissing = {
+  type: ConditionType.IfDiscountMissing
+}
+
+export type AtLeastOneShield = {
+  type: ConditionType.AtLeastOneShield
+  shield: Shield
+  line?: boolean
+  column?: boolean
+}
+
+export type IfCardFlippedMissing = {
+  type: ConditionType.IfCardFlippedMissing
+}
+
+export type IfCardWithPurseMissing = {
+  type: ConditionType.IfCardWithPurseMissing
+}
+
+export type PerLock = {
+  type: ConditionType.PerLock
 }

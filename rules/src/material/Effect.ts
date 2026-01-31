@@ -3,15 +3,27 @@ import { MaterialType } from './MaterialType'
 import { Place } from './Place'
 
 export enum EffectType {
-  Discount ,
-  GainGold ,
+  Discount,
+  GainGold,
   GainKeys,
   DiscardFromRiver,
   ChooseBetween,
-  PutGoldOnCard
+  PutGoldOnCard,
+  PutKeyOnCard,
+  DiscardLocation,
+  ActivateAdjacentAbility
 }
 
-export type Effect = Discount | GainGold | GainKeys | DiscardFromRiver | ChooseBetween | PutGoldOnCard
+export type Effect =
+  | Discount
+  | GainGold
+  | GainKeys
+  | DiscardFromRiver
+  | ChooseBetween
+  | PutGoldOnCard
+  | PutKeyOnCard
+  | DiscardLocation
+  | ActivateAdjacentAbility
 
 export type Discount = {
   type: EffectType.Discount
@@ -49,4 +61,19 @@ export type PutGoldOnCard = {
   type: EffectType.PutGoldOnCard
   gold?: number
   cardsLimit?: number
+}
+
+//Expansion1
+
+export type PutKeyOnCard = {
+  type: EffectType.PutKeyOnCard
+}
+
+export type DiscardLocation = {
+  type: EffectType.DiscardLocation
+  effect?: GainKeys
+}
+
+export type ActivateAdjacentAbility = {
+  type: EffectType.ActivateAdjacentAbility
 }
