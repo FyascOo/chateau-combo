@@ -33,12 +33,12 @@ enum ScoringKeys {
   Tableau2_2,
   Keys,
   Gold,
+  KeyOnCard,
   Total
 }
 
 export class ChateauComboScoringDescription implements ScoringDescription {
   getScoringKeys() {
-
     return [
       ScoringKeys.Tableau0_0,
       ScoringKeys.Tableau0_1,
@@ -60,76 +60,81 @@ export class ChateauComboScoringDescription implements ScoringDescription {
       case ScoringKeys.Tableau0_0:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau0_0}/>
+            <Picture css={mini} src={Tableau0_0} />
           </div>
         )
       case ScoringKeys.Tableau0_1:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau0_1}/>
+            <Picture css={mini} src={Tableau0_1} />
           </div>
         )
       case ScoringKeys.Tableau0_2:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau0_2}/>
+            <Picture css={mini} src={Tableau0_2} />
           </div>
         )
       case ScoringKeys.Tableau1_0:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau1_0}/>
+            <Picture css={mini} src={Tableau1_0} />
           </div>
         )
       case ScoringKeys.Tableau1_1:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau1_1}/>
+            <Picture css={mini} src={Tableau1_1} />
           </div>
         )
       case ScoringKeys.Tableau1_2:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau1_2}/>
+            <Picture css={mini} src={Tableau1_2} />
           </div>
         )
       case ScoringKeys.Tableau2_0:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau2_0}/>
+            <Picture css={mini} src={Tableau2_0} />
           </div>
         )
       case ScoringKeys.Tableau2_1:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau2_1}/>
+            <Picture css={mini} src={Tableau2_1} />
           </div>
         )
       case ScoringKeys.Tableau2_2:
         return (
           <div css={centeredCss}>
-            <Picture css={mini} src={Tableau2_2}/>
+            <Picture css={mini} src={Tableau2_2} />
           </div>
         )
       case ScoringKeys.Keys:
         return (
           <div css={centeredCss}>
-            <Picture css={[mini, keyCss ]} src={Key}/>
+            <Picture css={[mini, keyCss]} src={Key} />
           </div>
         )
       case ScoringKeys.Gold:
         return (
           <div css={centeredCss}>
-            <Trans i18nKey="scoring.gold.tie"
-                   components={{
-                     gold: <Picture css={mini} src={Gold}/>
-                   }}
-                   />
+            <Trans
+              i18nKey="scoring.gold.tie"
+              components={{
+                gold: <Picture css={mini} src={Gold} />
+              }}
+            />
           </div>
         )
       case ScoringKeys.Total:
       default:
-        return <div css={[bold, centeredCss]}><Trans i18nKey="scoring.total"/></div>
+        return (
+          <div css={[bold, centeredCss]}>
+            <Trans i18nKey="scoring.total" />
+          </div>
+        )
     }
   }
 
@@ -145,7 +150,7 @@ export class ChateauComboScoringDescription implements ScoringDescription {
       case ScoringKeys.Tableau1_0:
         return tableau.getCardScore(0, 1)
       case ScoringKeys.Tableau1_1:
-        return tableau.getCardScore( 1, 1)
+        return tableau.getCardScore(1, 1)
       case ScoringKeys.Tableau1_2:
         return tableau.getCardScore(2, 1)
       case ScoringKeys.Tableau2_0:

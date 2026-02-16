@@ -17,6 +17,7 @@ import { playerKeyStockLocator } from './PlayerKeyStockLocator'
 import { riverLocator } from './RiverLocator'
 import { scoringLocator } from './ScoringLocator'
 import { shieldsLocator } from './ShieldsLocator'
+import { lockAbilityLocator } from './LockAbilityLocator.ts'
 
 export const Locators: Partial<Record<LocationType, Locator>> = {
   [LocationType.EndOfRiver]: endOfRiverLocator,
@@ -35,6 +36,6 @@ export const Locators: Partial<Record<LocationType, Locator>> = {
   [LocationType.Effect]: effectLocator,
   [LocationType.MessengerIcon]: messengerIconDescription,
   [LocationType.ScoringArea]: scoringLocator,
-  [LocationType.CardVictoryPoints]: cardVictoryPointsLocator
+  [LocationType.CardVictoryPoints]: cardVictoryPointsLocator,
+  [LocationType.LockAbility]: lockAbilityLocator
 }
-

@@ -26,7 +26,7 @@ export enum ConditionType {
   PerDifferentCost,
   IfDiscountMissing,
   AtLeastOneShield,
-  IfCardFlippedMissing,
+  IfPlaceMissing,
   IfCardWithPurseMissing,
   PerLock
 }
@@ -56,7 +56,7 @@ export type Condition =
   | PerDifferentCost
   | IfDiscountMissing
   | AtLeastOneShield
-  | IfCardFlippedMissing
+  | IfPlaceMissing
   | IfCardWithPurseMissing
   | PerLock
 
@@ -177,8 +177,8 @@ export type AtLeastOneShield = {
   column?: boolean
 }
 
-export type IfCardFlippedMissing = {
-  type: ConditionType.IfCardFlippedMissing
+export type IfPlaceMissing = {
+  type: ConditionType.IfPlaceMissing
 }
 
 export type IfCardWithPurseMissing = {

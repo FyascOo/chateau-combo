@@ -903,7 +903,7 @@ export const cardCharacteristics: Record<Card, CardPattern> = {
         effect: { type: EffectType.GainKeys, gain: 2, condition: { type: ConditionType.PerShield, shield: Shield.Scholarship } }
       }
     ],
-    scoring: { score: 12, condition: { type: ConditionType.IfCardFlippedMissing } }
+    scoring: { score: 12, condition: { type: ConditionType.IfPlaceMissing } }
   },
   [Card.ArtForger]: {
     cost: 4,
